@@ -18,7 +18,7 @@ csv_file = os.path.join('my_connections.csv')
 #LLC
 #LLP
 #INC
-transforms = [(', Inc.', ''), (', Inc', ''), (', LLC', ''), (', LLP', ''), (' LLC', ''), (' Inc.', ''), (' Inc', ''), ('Society of Hispanic Professional Engineers', 'SHPE')]
+transforms = [(', Inc.', ''), (', Inc', ''), (', LLC', ''), (', LLP', ''), (' LLC', ''), (' Inc.', ''), (' Inc', '')]
 
 csvReader = csv.DictReader(open(csv_file), delimiter=',', quotechar='"') #which file, seperator and valuestart/valueStop
 

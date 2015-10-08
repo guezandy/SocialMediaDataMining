@@ -3,14 +3,8 @@ import csv
 import json
 from nltk.metrics.distance import jaccard_distance
 
-# XXX: Place your "Outlook CSV" formatted file of connections from 
-# http://www.linkedin.com/people/export-settings at the following
-# location: resources/ch03-linkedin/my_connections.csv
-
 CSV_FILE = os.path.join('my_connections.csv')
 
-# Tweak this distance threshold and try different distance calculations 
-# during experimentation
 DISTANCE_THRESHOLD = 0.5
 DISTANCE = jaccard_distance
 
@@ -33,9 +27,6 @@ def cluster_contacts_by_title(CSV_FILE):
 
     csvReader = csv.DictReader(open(CSV_FILE), delimiter=',', quotechar='"')
     contacts = [row for row in csvReader]
-
-    # Normalize and/or replace known abbreviations
-    # and build up a list of common titles.
 
     all_titles = []
     for i, _ in enumerate(contacts):
@@ -88,7 +79,7 @@ def cluster_contacts_by_title(CSV_FILE):
 
 
 clustered_contacts = cluster_contacts_by_title(CSV_FILE)
-print clustered_contacts
+#print clustered_contacts
 for titles in clustered_contacts:
     common_titles_heading = 'Common Titles: ' + ', '.join(titles)
 
