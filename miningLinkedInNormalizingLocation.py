@@ -13,7 +13,7 @@ csv_file = os.path.join('my_connections.csv')
 
 csvReader = csv.DictReader(open(csv_file), delimiter=',', quotechar='"') #which file, seperator and valuestart/valueStop
 
-connections = [row for row in csvReader]
+connections = json.loads(open)
 
 g = geocoders.Bing(GEO_APP_KEY)
 #print g.geocode("Nashville", exactly_one=False)

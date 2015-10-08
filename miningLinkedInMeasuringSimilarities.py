@@ -10,3 +10,7 @@ cto_bigrams = nltk.bigrams("Chief Technology Officer".split(), pad_right=True,
 print ceo_bigrams
 print cto_bigrams
 print len(set(ceo_bigrams).intersection(set(cto_bigrams)))
+
+
+#clustering algorithm
+
