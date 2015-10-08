@@ -1,5 +1,6 @@
 import os
 import csv
+import json
 from nltk.metrics.distance import jaccard_distance
 
 # XXX: Place your "Outlook CSV" formatted file of connections from 
@@ -25,6 +26,7 @@ def cluster_contacts_by_title(CSV_FILE):
         ('CTO', 'Chief Technology Officer'),
         ('CFO', 'Chief Finance Officer'),
         ('VP', 'Vice President'),
+        ('&', 'and'),
         ]
 
     separators = ['/', 'and', '&']
@@ -70,7 +72,7 @@ def cluster_contacts_by_title(CSV_FILE):
     # Flatten out clusters
 
     clusters = [clusters[title] for title in clusters if len(clusters[title]) > 1]
-
+    print json.dumps(clusters, indent=1)
     # Round up contacts who are in these clusters and group them together
 
     clustered_contacts = {}
