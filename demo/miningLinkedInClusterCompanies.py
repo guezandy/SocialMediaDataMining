@@ -3,7 +3,7 @@ import csv
 import json
 from nltk.metrics.distance import jaccard_distance
 
-CSV_FILE = os.path.join('my_connections.csv')
+CSV_FILE = os.path.join('linkedin_connections_export_microsoft_outlook.csv')
 
 DISTANCE_THRESHOLD = 0.5
 DISTANCE = jaccard_distance

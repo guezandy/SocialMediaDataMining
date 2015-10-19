@@ -3,13 +3,13 @@ import csv
 import json
 from nltk.metrics.distance import jaccard_distance
 
-CSV_FILE = os.path.join('my_connections.csv')
+CSV_FILE = os.path.join('linkedin_connections_export_microsoft_outlook.csv')
 
 DISTANCE_THRESHOLD = 0.5
 DISTANCE = jaccard_distance
 
 def cluster_contacts_by_title(CSV_FILE):
-
+#SETUP TRANSFORMS
     transforms = [
         ('Sr.', 'Senior'),
         ('Sr', 'Senior'),
@@ -42,6 +42,7 @@ def cluster_contacts_by_title(CSV_FILE):
                                   if title.strip() != ''])
 
         for transform in transforms:
+#NORMALIZE
             titles = [title.replace(*transform) for title in titles]
         contacts[i]['Job Titles'] = titles
         all_titles.extend(titles)
@@ -55,6 +56,7 @@ def cluster_contacts_by_title(CSV_FILE):
             if title2 in clusters[title1] or clusters.has_key(title2) and title1 \
                 in clusters[title2]:
                 continue
+#COMPARE SIMILARITY   
             distance = DISTANCE(set(title1.split()), set(title2.split()))
 
             if distance < DISTANCE_THRESHOLD:
@@ -63,6 +65,7 @@ def cluster_contacts_by_title(CSV_FILE):
     # Flatten out clusters
 
     clusters = [clusters[title] for title in clusters if len(clusters[title]) > 1]
+#PRINT ALL THE CLUSTERS
     print json.dumps(clusters, indent=1)
     # Round up contacts who are in these clusters and group them together
 
@@ -80,6 +83,8 @@ def cluster_contacts_by_title(CSV_FILE):
 
 clustered_contacts = cluster_contacts_by_title(CSV_FILE)
 #print clustered_contacts
+
+#PRINT RESULTS
 for titles in clustered_contacts:
     common_titles_heading = 'Common Titles: ' + ', '.join(titles)
 

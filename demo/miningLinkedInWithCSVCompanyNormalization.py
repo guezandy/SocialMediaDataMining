@@ -13,7 +13,7 @@ from collections import Counter
 from operator import itemgetter
 from prettytable import PrettyTable
 
-csv_file = os.path.join('my_connections.csv')
+csv_file = os.path.join('linkedin_connections_export_microsoft_outlook.csv')
 #google vs google Inc vs google coporation
 #LLC
 #LLP
