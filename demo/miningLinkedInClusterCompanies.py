@@ -10,7 +10,8 @@ DISTANCE = jaccard_distance
 
 def cluster_contacts_by_company(CSV_FILE):
 
-    transforms = [(', Inc.', ''), (', Inc', ''), (', LLC', ''), (', LLP', ''), (' LLC', ''), (' Inc.', ''), (' Inc', '')]
+#define normalization criteria
+    transforms = [(' Company',''),(' Co.',''), (' Co',''),(', Inc.', ''), (', Inc', ''), (', LLC', ''), (', LLP', ''), (' LLC', ''), (' Inc.', ''), (' Inc', '')]
 
     separators = ['/', 'and', '&']
 
