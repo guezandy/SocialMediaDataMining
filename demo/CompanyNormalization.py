@@ -19,7 +19,17 @@ csv_file = os.path.join('linkedin_connections_export_microsoft_outlook.csv')
 #LLP
 #INC
 #transforms = [];
-transforms = [(' Company',''),(' Co.',''), (' Co',''), (', Inc.', ''), (', Inc', ''), (', LLC', ''), (', LLP', ''), (' LLC', ''), (' Inc.', ''), (' Inc', '')]
+transforms = [
+	(' Company',''),
+	(' Co.',''), 
+	(' Co',''), 
+	(', Inc.', ''), 
+	(', Inc', ''), 
+	(', LLC', ''), 
+	(', LLP', ''), 
+	(' LLC', ''), 
+	(' Inc.', ''), 
+	(' Inc', '')]
 
 csvReader = csv.DictReader(open(csv_file), delimiter=',', quotechar='"') #which file, seperator and valuestart/valueStop
 
